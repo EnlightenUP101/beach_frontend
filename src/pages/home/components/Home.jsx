@@ -11,7 +11,7 @@ export function Home() {
         UUID: {data?.uuid} <br />
         Name: {data?.setting?.botName}
       </div>
-      <button onClick={onClickTitle}> Click me to Post</button>
+      <button onClick={onClickTitle}> Click me to Post.</button>
     </>
   );
 }
