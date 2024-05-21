@@ -1,17 +1,19 @@
-import { useHome } from '@pages/home';
+import AboutUs from './aboutUs/AboutUs';
+import Categories from './categories/Categories';
+import Footer from './footer/footer';
+import Hero from './hero/Hero';
+import Navbar from './navbar/Navbar';
 
 export function Home() {
-  const { data, isFetching, onClickTitle } = useHome();
 
-  return isFetching ? (
-    <div> Loading...</div>
-  ) : (
-    <>
-      <div>
-        UUID: {data?.uuid} <br />
-        Name: {data?.setting?.botName}
-      </div>
-      <button onClick={onClickTitle}> Click me to Post.</button>
-    </>
+  return  (
+    <main className='bg-[#f6f3f3]'>
+      <Navbar />
+      <Hero />
+      <Categories />
+      <AboutUs />
+      <Footer />
+      
+    </main>
   );
 }
