@@ -24,7 +24,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </CacheBuster>
       <ToastContainer />
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );
