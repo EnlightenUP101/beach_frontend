@@ -1,3 +1,4 @@
 export const queryKeys = {
-  USERS: 'users',
+  ITEMS_LISTING: 'items-listing',
+  CATEGORIES_LISTING: 'categories-listing',
 };
