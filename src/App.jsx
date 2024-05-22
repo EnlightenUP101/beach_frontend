@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { RouterProvider } from 'react-router-dom';
+import Dashboard from '@pages/dashboard/Dashboard';
 import { router } from '@routes';
 import { useSentry, useSetupAxios } from '@services';
 import { AppContext } from '@useContext';
+import { useState } from 'react';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
   useSetupAxios();
