@@ -11,14 +11,6 @@ export function useSetupAxios() {
 
     if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
 
-    if (!(config?.data instanceof FormData)) {
-      const caseConvertedData = caseConverter.snakeKeys(config?.data, options);
-      config.data = caseConvertedData;
-    }
-
-    const caseConvertedData = caseConverter.snakeKeys(config.params);
-    config.params = caseConvertedData;
-
     return config;
   });
 
