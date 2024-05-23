@@ -10,7 +10,7 @@ export default function Categories() {
 
   const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
     queryKeys.ITEMS_LISTING,
-    apiEndpoints.ITEMS_LISTING,
+    apiEndpoints.ITEMS_LISTING_FILTERED,
     {
       category,
     }
@@ -25,7 +25,8 @@ export default function Categories() {
   }
 
   useEffect(() => {
-    category && itemsListingRefetch();
+    itemsListingRefetch();
+    if (!category) setSearchParams({});
   }, [category]);
 
   return (
@@ -36,6 +37,12 @@ export default function Categories() {
       {/* categories list slection */}
       <div className="my-8">
         <ul className="flex gap-3 flex-wrap">
+          <li
+            onClick={() => handleCategorySelect('')}
+            className="rounded-full  cursor-pointer text-black list-none border border-sky-100  px-[10px]  py-0.5  bg-[#ffd664]"
+          >
+            All Categories
+          </li>
           {categoriesListing?.data?.results?.map(category => (
             <li
               onClick={() => handleCategorySelect(category?.name)}

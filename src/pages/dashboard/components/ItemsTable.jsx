@@ -1,96 +1,3 @@
-// import React, { useState } from 'react';
-// import ItemsModal from './ItemsModal';
-// import { apiEndpoints, queryKeys, useGetQuery, usePostMutation } from '@services';
-// import { itemsInitialValues, itemsValidationSchema } from '@utils';
-// import { useFormikForm } from '@common/hooks';
-
-// const ItemsTable = () => {
-//   const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
-//     queryKeys.ITEMS_LISTING,
-//     apiEndpoints.ITEMS_LISTING
-//   );
-//   const { data: categoriesListing } = useGetQuery(queryKeys.CATEGORIES_LISTING, apiEndpoints.CATEGORIES_LISTING);
-
-//   const [openCreateItemModal, setOpenCreateItemModal] = useState(false);
-
-//   const { mutate: createItemMutation } = usePostMutation(apiEndpoints.CREATE_ITEM, onSuccess, onError);
-
-//   const { values, handleChange, handleSubmit, errors, touched, resetForm } = useFormikForm(
-//     itemsInitialValues,
-//     onSubmit,
-//     itemsValidationSchema
-//   );
-
-//   function onSubmit(values) {
-//     createItemMutation({
-//       payload: values,
-//     });
-//   }
-
-//   function onSuccess() {
-//     setOpenCreateItemModal(false);
-//     resetForm();
-//     itemsListingRefetch();
-//   }
-
-//   function onError() {
-//     toast.error(CATEGORY_CREATE_ERROR);
-//     resetForm();
-//     itemsListingRefetch(false);
-//   }
-
-//   return (
-//     <div className="border rounded-lg m-5 p-5">
-//       <div className="flex justify-between items-center px-4 font-semibold">
-//         <h1 className="text-2xl">Items</h1>
-//         <button
-//           className="bg-blue-500 py-2 px-3 text-sm text-white font-bold rounded-lg"
-//           onClick={() => setOpenCreateItemModal(true)}
-//         >
-//           Add item
-//         </button>
-//       </div>
-//       <table className="min-w-full bg-white">
-//         <thead>
-//           <tr>
-//             <th className="py-5 px-4 text-black border-b border-gray-200 text-left text-sm font-semibold">Name</th>
-//             <th className="py-5 px-4 text-black border-b border-gray-200 text-left text-sm font-semibold">Category</th>
-//             <th className="py-5 px-4 text-black border-b border-gray-200 text-left text-sm font-semibold">Price</th>
-//             <th className="py-5 px-4 text-black border-b border-gray-200 text-left text-sm font-semibold">Actions</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {itemsListing?.data?.results?.map(item => (
-//             <tr key={item?.id} className="border-b border-gray-200">
-//               <td className="py-5 px-4 text-sm text-gray-700">{item?.name}</td>
-//               <td className="py-5 px-4 text-sm text-gray-700">{item?.categoryId?.name}</td>
-//               <td className="py-5 px-4 text-sm text-gray-700">{item?.price}</td>
-//               <td className="py-5 px-4">
-//                 <div className="flex items-center gap-5">
-//                   <button>Edit</button>
-//                   <button>Delete</button>
-//                 </div>
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//       <ItemsModal
-//         values={values}
-//         handleChange={handleChange}
-//         handleSubmit={handleSubmit}
-//         errors={errors}
-//         touched={touched}
-//         onOpen={openCreateItemModal}
-//         setOnOpen={setOpenCreateItemModal}
-//         categoriesListing={categoriesListing}
-//       />
-//     </div>
-//   );
-// };
-
-// export default ItemsTable;
-
 import React, { useState } from 'react';
 import ItemsModal from './ItemsModal';
 import { apiEndpoints, queryKeys, useGetQuery, usePostMutation, usePutMutation, useDeleteMutation } from '@services';
@@ -102,7 +9,7 @@ import { ITEM_CREATE_ERROR, ITEM_EDIT_ERROR, ITEM_DELETE_ERROR, SUCCESS_TOAST } 
 const ItemsTable = () => {
   const { data: itemsListing, refetch: itemsListingRefetch } = useGetQuery(
     queryKeys.ITEMS_LISTING,
-    apiEndpoints.ITEMS_LISTING
+    apiEndpoints.ITEMS_LISTING_UNFILTERED
   );
   const { data: categoriesListing } = useGetQuery(queryKeys.CATEGORIES_LISTING, apiEndpoints.CATEGORIES_LISTING);
 

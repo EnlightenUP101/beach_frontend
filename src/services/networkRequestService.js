@@ -42,7 +42,6 @@ export const usePatchMutation = (url, onSuccess, onError) => {
 export const usePutMutation = (url, onSuccess, onError) => {
   return useMutation({
     mutationFn: ({ payload, params }) => {
-      console.log(payload);
       return performPutRequest(url, payload, params);
     },
     onSuccess,
