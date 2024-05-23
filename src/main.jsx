@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import App from './App.jsx';
 import { version } from '../package.json';
 import { ENABLE } from '@constants';
+import 'react-toastify/dist/ReactToastify.css';
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </CacheBuster>
       <ToastContainer />
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );
